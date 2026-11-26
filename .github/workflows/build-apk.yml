@@ -37,6 +37,7 @@ jobs:
       - name: Build APK
         run: |
           cd "$PROJECT_DIR"
+          sed -i '/^package /a import androidx.compose.ui.platform.LocalLayoutDirection' app/src/main/java/com/rafeeq/app/MainActivity.kt
           gradle --no-daemon assembleDebug
 
       - name: Upload APK
